@@ -11,7 +11,8 @@ npm run dev
 
 - [x] Create new prject
 - [x] Create fist static site with content from Starwars API (https://swapi.dev/api/people/1/)
-- [ ] Connect mysql database (tablename=starwars) 
+- [x] Create mysql database with tablename=starwars
+- [ ] Connect to mysql database 
 - [ ] Create route to add to mysql (name)
 - [ ] Create route to PUT/change mysql (name) 
 - [ ] Create route to delete (name)
