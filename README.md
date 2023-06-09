@@ -1,6 +1,11 @@
 # next-js-test
 Testing some next-js + react with typescript?
 
+## How to:
+
+```bash
+npm run dev
+```
 
 ## Todo:
 
