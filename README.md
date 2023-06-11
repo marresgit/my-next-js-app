@@ -26,4 +26,16 @@ Done
 ### *Extra*
 
 - [ ] Backend with FastAPI
-- [ ] 
+
+
+### Prixma
+
+```bash
+npx prisma init
+```
+```bash
+npx prisma generate
+```
+```bash
+npx prisma migrate dev
+```

@@ -7,13 +7,22 @@ async function getData() {
     return data
 }
 
+
 const prisma = new PrismaClient();
+
+export async function getDatabaseData() {
+    const names = await prisma.name.findMany();
+    console.log(names);
+    return {
+        props: names,
+    };
+}
 
 export default async function Page() {
     const names = await prisma.name.findMany();
     const data = await getData()
-
-    return <main>name{`NAME: ${data.name}`} <p>{`HEIGHT: ${data.height}`}</p></main>
+    console.log(names);
+    return <main><br></br><br></br>{`NAME: ${data.name}`} <p>{`HEIGHT: ${data.height}`}</p></main>
 }
 
 // RESULt: https://swapi.dev/api/people/1/?format=json:
