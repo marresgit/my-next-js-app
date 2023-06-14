@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client';
 
 
 async function getData() {
@@ -8,20 +7,8 @@ async function getData() {
 }
 
 
-const prisma = new PrismaClient();
-
-export async function getDatabaseData() {
-    const names = await prisma.name.findMany();
-    console.log(names);
-    return {
-        props: names,
-    };
-}
-
 export default async function Page() {
-    const names = await prisma.name.findMany();
     const data = await getData()
-    console.log(names);
     return <main><br></br><br></br>{`NAME: ${data.name}`} <p>{`HEIGHT: ${data.height}`}</p></main>
 }
 

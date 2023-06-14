@@ -19,5 +19,5 @@ export async function getDatabaseData() {
 export default async function Page() {
     const names = await prisma.name.findMany();
     console.log(names);
-    return <main></main>
+    return <main className="flex min-h-screen flex-col items-center justify-between p-24">And we are in</main>
 }
