@@ -49,10 +49,9 @@ export default async function Page() {
 
 function Form() {
     return (
-        <form action="/api/form" method="post">
+        <form action="/api/form">
             <label htmlFor="hero">Hero Name</label>
             <input type="text" id="hero" name="hero" required />
-
             <button type="submit">Save</button>
         </form>
     )
