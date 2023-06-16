@@ -11,31 +11,21 @@ export async function getStaticProps() {
     const heroes = await prisma.heroes.findMany()
     console.log(heroes)
     return {
-        props : { heroes }
-    }
+        props : { heroes },
+    };
 }
-
-
-// export default ({heroes}) =>
-//     <ul>
-//         {heroes.map(hero => (
-//             <li key={hero.id}>{hero.name}</li>
-//         ))}
-//     </ul>
-// );
-
 
 export default async function Page() {
     const data = await getStaticProps()
     const heroes = data.props.heroes
-    // const prisma = new PrismaClient();
-    // const heroes = await prisma.heroes.findMany();
-    // console.log(heroes);
-    return <main className="flex min-h-screen flex-col items-center justify-between p-24">And we are in
+    return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        And we are in
         <ul>
             {heroes.map(hero => (
                 <li key={hero.id}>{hero.name}</li>
             ))}
         </ul>
     </main>
+    );
 }
