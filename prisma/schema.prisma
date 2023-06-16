@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Name {
+model heroes {
   id   Int    @id @default(autoincrement())
   name String @db.VarChar(255)
 }

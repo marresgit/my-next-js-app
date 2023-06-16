@@ -4,20 +4,38 @@ import { PrismaClient } from '@prisma/client';
 // I want to paste DB content to this page.tsx
 // #########################################################
 
-const prisma = new PrismaClient();
 
 // WIP - I dont know what im doing
-export async function getDatabaseData() {
-    const names = await prisma.name.findMany();
-    console.log(names);
+export async function getStaticProps() {
+    const prisma = new PrismaClient();
+    const heroes = await prisma.heroes.findMany()
+    console.log(heroes)
     return {
-        props: names,
-    };
+        props : { heroes }
+    }
 }
 
-// This works but in console..
+
+// export default ({heroes}) =>
+//     <ul>
+//         {heroes.map(hero => (
+//             <li key={hero.id}>{hero.name}</li>
+//         ))}
+//     </ul>
+// );
+
+
 export default async function Page() {
-    const names = await prisma.name.findMany();
-    console.log(names);
-    return <main className="flex min-h-screen flex-col items-center justify-between p-24">And we are in</main>
+    const data = await getStaticProps()
+    const heroes = data.props.heroes
+    // const prisma = new PrismaClient();
+    // const heroes = await prisma.heroes.findMany();
+    // console.log(heroes);
+    return <main className="flex min-h-screen flex-col items-center justify-between p-24">And we are in
+        <ul>
+            {heroes.map(hero => (
+                <li key={hero.id}>{hero.name}</li>
+            ))}
+        </ul>
+    </main>
 }
