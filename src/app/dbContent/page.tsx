@@ -2,11 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
 
-// #########################################################
-// I want to paste DB content to this page.tsx
-// #########################################################
 
-// WIP - I dont know what im doing
 export async function getData() {
     const prisma = new PrismaClient();
     const heroes = await prisma.heroes.findMany()
