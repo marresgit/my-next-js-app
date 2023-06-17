@@ -1,4 +1,6 @@
 import { PrismaClient } from '@prisma/client';
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 // #########################################################
 // I want to paste DB content to this page.tsx
@@ -14,18 +16,41 @@ export async function getData() {
     };
 }
 
-export async function saveData({hero}) {
-    const prisma = new PrismaClient();
-    const result = await prisma.heroes.create({
-        data: {
-            name: {hero}
-        }
-    })
 
-}
+// export async function saveData({hero}) {
+//     const prisma = new PrismaClient();
+//     const result = await prisma.heroes.create({
+//         data: {
+//             name: {hero}
+//         }
+//     })
+//
+// }
 
 export default async function Page() {
-    saveData("test")
+
+    async function create(data: FormData) {
+        try {
+            fetch('http://localhost:3000/api/create', {
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: 'POST'
+            }).then(() => setForm({name: '', id: ''}))
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleSubmit = async (data: FormData) => {
+        try {
+            create(data)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     const data = await getData()
     const heroes = data.props.heroes
     return (
@@ -49,7 +74,7 @@ export default async function Page() {
 
 function Form() {
     return (
-        <form action="/api/form">
+        <form action="/api/create">
             <label htmlFor="hero">Hero Name</label>
             <input type="text" id="hero" name="hero" required />
             <button type="submit">Save</button>
