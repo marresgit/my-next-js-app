@@ -45,11 +45,44 @@ export default async function Page() {
 
     const data = await getData()
     const heroes = data.props.heroes
-    const [form, setForm] = useState<FormData>({name: '', id: ''});
+    // const [form, setForm] = useState<FormData>({name: '', id: ''});
     return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
         And we are in
 
+        {/*<div>*/}
+        {/*    <h1 className="text-center font-bold text-2x1 mt-4">Data</h1>*/}
+        {/*    <form onSubmit={e => {*/}
+        {/*        e.preventDefault()*/}
+        {/*    }} className='w-auto min-w-[25%] max-w-min mx-auto space-y-6 flex flex-col items-stretch'>*/}
+        {/*        <input type="text"*/}
+        {/*               placeholder="Name"*/}
+        {/*               value={form.name}*/}
+        {/*               onChange={e => setForm({...form, name: e.target.value})}*/}
+        {/*               className="border-2 rounded border-gray-600 p-1"*/}
+        {/*        />*/}
+        {/*        <button type="submit" className="bg-blue-500 text-white rounded p-1">Add</button>*/}
+
+        {/*    </form>*/}
+        {/*</div>*/}
+
+        <Form/>
+
+        <ul>
+            {heroes.map(hero => (
+                <li key={hero.id}>{hero.name}</li>
+            ))}
+        </ul>
+
+
+
+    </main>
+    );
+}
+
+function Form() {
+    const [form, setForm] = useState<FormData>({name: '', id: ''})
+    return (
         <div>
             <h1 className="text-center font-bold text-2x1 mt-4">Data</h1>
             <form onSubmit={e => {
@@ -65,36 +98,5 @@ export default async function Page() {
 
             </form>
         </div>
-
-        <ul>
-            {heroes.map(hero => (
-                <li key={hero.id}>{hero.name}</li>
-            ))}
-        </ul>
-
-
-
-    </main>
-    );
+    )
 }
-
-// function Form() {
-//     const [form, setForm] = useState<FormData>({name: '', id: ''})
-//     return (
-//         <div>
-//             <h1 className="text-center font-bold text-2x1 mt-4">Data</h1>
-//             <form onSubmit={e => {
-//                 e.preventDefault()
-//             }} className='w-auto min-w-[25%] max-w-min mx-auto space-y-6 flex flex-col items-stretch'>
-//                 <input type="text"
-//                        placeholder="Name"
-//                        value={form.name}
-//                        onChange={e => setForm({...form, name: e.target.value})}
-//                        className="border-2 rounded border-gray-600 p-1"
-//                 />
-//                 <button type="submit" className="bg-blue-500 text-white rounded p-1">Add</button>
-//
-//             </form>
-//         </div>
-//     )
-// }
