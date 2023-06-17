@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
+import {useState} from "react";
 
 
 export async function getData() {
@@ -12,16 +13,6 @@ export async function getData() {
     };
 }
 
-
-// export async function saveData({hero}) {
-//     const prisma = new PrismaClient();
-//     const result = await prisma.heroes.create({
-//         data: {
-//             name: {hero}
-//         }
-//     })
-//
-// }
 
 export default async function Page() {
 
@@ -67,13 +58,28 @@ export default async function Page() {
     );
 }
 
+interface FormData {
+    name: string
+    id: string
+}
 
 function Form() {
+    const [form, setForm] = useState<FormData>({name: '', id: ''})
     return (
-        <form action="/api/create">
-            <label htmlFor="hero">Hero Name</label>
-            <input type="text" id="hero" name="hero" required />
-            <button type="submit">Save</button>
-        </form>
+        <div>
+            <h1 className="text-center font-bold text-2x1 mt-4">Data</h1>
+            <form onSubmit={e => {
+                e.preventDefault()
+            }} className='w-auto min-w-[25%] max-w-min mx-auto space-y-6 flex flex-col items-stretch'>
+                <input type="text"
+                       placeholder="Name"
+                       value={form.name}
+                       onChange={e => setForm({...form, name: e.target.value})}
+                       className="border-2 rounded border-gray-600 p-1"
+                />
+                <button type="submit" className="bg-blue-500 text-white rounded p-1">Add</button>
+
+            </form>
+        </div>
     )
 }
