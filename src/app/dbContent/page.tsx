@@ -14,7 +14,6 @@ export async function getData() {
     };
 }
 
-
 interface FormData {
     name: string
     id: string
@@ -73,9 +72,6 @@ export default async function Page() {
                 <li key={hero.id}>{hero.name}</li>
             ))}
         </ul>
-
-
-
     </main>
     );
 }
