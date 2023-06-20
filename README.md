@@ -30,8 +30,7 @@ Done
 
 ### Prixma
 
-.env file 
-
+.env file
 ```
 DATABASE_URL = "mysql://your_username:your_password@localhost:3306/your_db_name"
 ```
