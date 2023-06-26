@@ -1,6 +1,6 @@
 import {NextRequest, NextResponse} from 'next/server'
 import {prisma} from '@/db'
-import Form from "@/app/components/Table";
+import Form from "@/app/components/Form";
 import PrismaClientKnownRequestError = Prisma.PrismaClientKnownRequestError;
 
 export async function GET() {

@@ -1,6 +1,7 @@
 'use client';
 
-import Form from "@/app/components/Table";
+import Form from "@/app/components/Form";
+import Table from "@/app/components/Table";
 
 export default async function Page() {
     const res = await fetch('http://localhost:3000/api', {
@@ -21,11 +22,8 @@ export default async function Page() {
 
             <Form/>
 
-            <ul>
-                {heroes.map((hero) => (
-                    <li key={hero.id}>{hero.name}</li>
-                ))}
-            </ul>
+            <Table/>
+
         </main>
     )
 }

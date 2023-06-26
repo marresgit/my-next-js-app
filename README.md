@@ -17,7 +17,7 @@ npm run dev
 npx prisma studio
 ```
 - [x] Connect to mysql/postgres database and show content on page (Connect to existing mysql database: https://www.prisma.io/docs/concepts/database-connectors/mysql, https://www.youtube.com/watch?v=CQcaeIhVB8c)
-- [ ] Create route to add to mysql (dota) (https://www.youtube.com/watch?v=cQ6V7ZHzg8c&t=2164s This could be to help)
+- [x] Create route to add to mysql (dota) (https://www.youtube.com/watch?v=cQ6V7ZHzg8c&t=2164s This could be to help)
 - [ ] Create route to PUT/change mysql (dota) 
 - [ ] Create route to delete (name)
 
