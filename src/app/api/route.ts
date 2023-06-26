@@ -15,7 +15,6 @@ export async function POST(request: NextRequest) {
         name: data.name
     }
 
-    // console.log(data)
     const result = await prisma.heroes.create({
         data: {
             name: hero.name
