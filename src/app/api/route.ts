@@ -1,8 +1,6 @@
 import {NextRequest, NextResponse} from 'next/server'
 import {prisma} from '@/db'
-import {json} from "stream/consumers";
 import {Prisma} from ".prisma/client";
-import PrismaClientKnownRequestError = Prisma.PrismaClientKnownRequestError;
 
 export async function GET() {
     const heroes = await prisma.heroes.findMany()
