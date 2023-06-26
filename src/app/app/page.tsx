@@ -16,16 +16,16 @@ export default async function Page() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
+
             <h1>The Dota app</h1>
-            <p></p>
-                <ul>
-                    {heroes.map((hero) => (
-                        <li key={hero.id}>{hero.name}</li>
-                    ))}
-                </ul>
 
             <Form/>
 
+            <ul>
+                {heroes.map((hero) => (
+                    <li key={hero.id}>{hero.name}</li>
+                ))}
+            </ul>
         </main>
     )
 }
