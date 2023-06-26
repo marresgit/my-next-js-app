@@ -1,6 +1,7 @@
 import {NextRequest, NextResponse} from 'next/server'
 import {prisma} from '@/db'
-import {Prisma} from ".prisma/client";
+import Form from "@/app/components/Table";
+import PrismaClientKnownRequestError = Prisma.PrismaClientKnownRequestError;
 
 export async function GET() {
     const heroes = await prisma.heroes.findMany()
@@ -14,21 +15,11 @@ export async function POST(request: NextRequest) {
         name: data.name
     }
 
-    console.log(data)
-    try {
-        const result = await prisma.heroes.create({
-            data: {
-                name: hero.name
-            }
-        })
-        return NextResponse.json({result})
-    } catch (e) {
-        if (e instanceof Prisma.PrismaClientKnownRequestError) {
-            if (e.code === 'P2002') {
-                console.log("There is an unique constraint validation!!!")
-            }
+    // console.log(data)
+    const result = await prisma.heroes.create({
+        data: {
+            name: hero.name
         }
-        throw e
-    }
+    })
+    return NextResponse.json({result})
 }
-

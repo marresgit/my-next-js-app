@@ -1,5 +1,7 @@
 'use client';
 
+import Form from "@/app/components/Table";
+
 export default async function Page() {
     const res = await fetch('http://localhost:3000/api', {
         method: 'GET',
@@ -15,13 +17,14 @@ export default async function Page() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <h1>The Dota app</h1>
+            <p></p>
+                <ul>
+                    {heroes.map((hero) => (
+                        <li key={hero.id}>{hero.name}</li>
+                    ))}
+                </ul>
 
-            <ul>
-                {heroes.map(hero => (
-                    <li key={hero.id}>{hero.name}</li>
-                ))}
-            </ul>
-
+            <Form/>
 
         </main>
     )
