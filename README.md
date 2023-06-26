@@ -34,7 +34,12 @@ Done
 ```
 DATABASE_URL = "mysql://your_username:your_password@localhost:3306/your_db_name"
 ```
+or sqllite
+```
+DATABASE_URL="file:./dev.db"
+```
 
+Here are the prisma commands
 ```bash
 npx prisma init
 ```
