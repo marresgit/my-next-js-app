@@ -16,9 +16,10 @@ export default async function Page() {
     const heroes = data.heroes;
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center justify-between p-32">
 
-            <h1>The Dota app</h1>
+            <h1>Welcome</h1>
+            <h2>Please add your hero to the database</h2>
 
             <Form/>
 
