@@ -26,7 +26,7 @@ Done
 ### *Extra*
 
 - [ ] Backend with FastAPI
-
+- [x] Google maps iframe
 
 ### Prixma
 
