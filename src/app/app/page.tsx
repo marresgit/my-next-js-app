@@ -18,15 +18,19 @@ export default async function Page() {
 
     return (
         <main className="">
+            <div className={`flex flex-col items-stretch`}>
+                <h1 className={`text-center p-2`}>Welcome</h1>
+                <h2 className={`text-center p-2`}>Please add your hero to the database</h2>
 
-            <h1>Welcome</h1>
-            <h2>Please add your hero to the database</h2>
+                <Form/>
 
-            <Form/>
+                <Table/>
 
-            <Table/>
 
-            {/*<GoogleMaps/>*/}
+                <GoogleMaps/>
+
+
+            </div>
 
         </main>
     )

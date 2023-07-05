@@ -15,25 +15,27 @@ export default async function Table() {
     const heroes = data.heroes;
 
     return (
-        <div className="bg-white pt-8 pb-6 shadow rounded-lg sm-px-10 pl-4 pr-4">
-            <table className="table-auto text-black">
-                <thead>
-                <tr>
-                    <th className={`p-4 m-4 text-left`}>Name</th>
-                    <th className={`p-4 m-4 text-left`}>Weapon</th>
-                    <th className={`p-4 m-4 text-left`}>Attribute</th>
-                </tr>
-                </thead>
-                {heroes.map(hero => (
-                    <tbody key={hero.id}>
+        <div className="flex my-4 justify-center">
+            <div className={`rounded-lg bg-white py-8 px-6`}>
+                <table className="text-black table-auto">
+                    <thead>
                     <tr>
-                        <td className={`p-4 m-4`}>{hero.name}</td>
-                        <td className={`p-4 m-4`}>{hero.weapon}</td>
-                        <td className={`p-4 m-4`}>{hero.attribute}</td>
+                        <th className={`text-left pr-16 pb-2`}>Name</th>
+                        <th className={`text-left pr-16 pb-2`}>Weapon</th>
+                        <th className={`text-left pr-16 pb-2`}>Attribute</th>
                     </tr>
-                    </tbody>
-                ))}
-            </table>
+                    </thead>
+                    {heroes.map(hero => (
+                        <tbody key={hero.id}>
+                        <tr>
+                            <td className={`pr-16`}>{hero.name}</td>
+                            <td className={`pr-16`}>{hero.weapon}</td>
+                            <td className={`pr-16`}>{hero.attribute}</td>
+                        </tr>
+                        </tbody>
+                    ))}
+                </table>
+            </div>
         </div>
     )
 }

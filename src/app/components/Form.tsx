@@ -25,8 +25,8 @@ async function handleSubmit(event: any) {
 
 export default function Form() {
     return (
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div className="bg-white py-8 px-6 shadow rounded-lg sm-px-10">
+        <div className="flex my-4 justify-center">
+            <div className="rounded-lg bg-white py-8 px-6 ">
                 <form onSubmit={handleSubmit} className="mb-0 space-y-6" action="#" method="POST">
                     <div>
 
