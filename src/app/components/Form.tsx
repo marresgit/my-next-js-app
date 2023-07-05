@@ -3,7 +3,9 @@
 async function handleSubmit(event: any) {
     event.preventDefault()
     const hero = {
-        name: String(event.target.name.value)
+        name: String(event.target.name.value),
+        weapon: String(event.target.weapon.value),
+        attribute: String(event.target.attribute.value),
     }
 
     const response = await fetch('api', {
@@ -27,11 +29,21 @@ export default function Form() {
             <div className="bg-white py-8 px-6 shadow rounded-lg sm-px-10">
                 <form onSubmit={handleSubmit} className="mb-0 space-y-6" action="#" method="POST">
                     <div>
+
                         <label htmlFor="hero" className="block text-sm font-medium text-gray-700">
-                            Hero name
+
                         </label>
+
                         <div className="mt-1">
-                            <input id="name" name="hero" type="name" required={true} className="text-black w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500"/>
+                            <input id="name" name="hero" type="name" placeholder="Name" required={true} className="text-black w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500"/>
+                        </div>
+
+                        <div className="mt-1">
+                            <input id="weapon" name="weapon" type="weapon" placeholder="Weapon" required={true} className="text-black w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500"/>
+                        </div>
+
+                        <div className="mt-1">
+                            <input id="attribute" name="attribute" type="attribute" placeholder="Attribute" required={true} className="text-black w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500"/>
                         </div>
 
                         <div className="mt-5">

@@ -12,12 +12,16 @@ export async function GET() {
 export async function POST(request: NextRequest) {
     const data = await request.json()
     const hero = {
-        name: data.name
+        name: data.name,
+        weapon: data.weapon,
+        attribute: data.attribute
     }
 
     const result = await prisma.heroes.create({
         data: {
-            name: hero.name
+            name: hero.name,
+            weapon: hero.weapon,
+            attribute: hero.attribute,
         }
     })
     return NextResponse.json({result})
