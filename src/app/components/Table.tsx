@@ -24,6 +24,7 @@ export default async function Table() {
                         <th className={`text-left pr-16 pb-2`}>Weapon</th>
                         <th className={`text-left pr-16 pb-2`}>Attribute</th>
                     </tr>
+
                     </thead>
                     {heroes.map(hero => (
                         <tbody key={hero.id}>
@@ -31,6 +32,11 @@ export default async function Table() {
                             <td className={`pr-16`}>{hero.name}</td>
                             <td className={`pr-16`}>{hero.weapon}</td>
                             <td className={`pr-16`}>{hero.attribute}</td>
+                            <td>
+                                <button
+                                    className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                                    edit
+                                </button></td>
                         </tr>
                         </tbody>
                     ))}
