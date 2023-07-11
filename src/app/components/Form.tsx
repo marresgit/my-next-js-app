@@ -1,5 +1,8 @@
 'use client'
 
+import {useEffect} from "react";
+
+
 async function handleSubmit(event: any) {
     event.preventDefault()
     const hero = {
@@ -22,8 +25,8 @@ async function handleSubmit(event: any) {
     }
 }
 
-
 export default function Form() {
+
     return (
         <div className="flex my-4 justify-center">
             <div className="rounded-lg bg-white py-8 px-6 ">

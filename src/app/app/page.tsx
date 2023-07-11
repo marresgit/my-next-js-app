@@ -1,20 +1,11 @@
-'use client';
 
 import Form from "@/app/components/Form";
 import Table from "@/app/components/Table";
 import GoogleMaps from "@/app/components/GoogleMaps";
+import {useEffect} from "react";
+
 
 export default async function Page() {
-    const res = await fetch('http://localhost:3000/api', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-
-    const data = await res.json()
-
-    const heroes = data.heroes;
 
     return (
         <main className="">
