@@ -1,31 +1,42 @@
 'use client'
 
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import { useRouter } from "next/navigation";
 
 
-async function handleSubmit(event: any) {
-    event.preventDefault()
-    const hero = {
-        name: String(event.target.name.value),
-        weapon: String(event.target.weapon.value),
-        attribute: String(event.target.attribute.value),
-    }
 
-    const response = await fetch('api', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(hero),
-    })
-    if (!response.ok) {
-        throw new Error(response.statusText)
-    } else {
-        alert("Hero added successfully!")
-    }
+
+interface FormData {
+    name: string
+    weapon: string
+    attribute: string
 }
 
 export default function Form() {
+    const [form, setForm] = useState({name: '', weapon: '', attribute: ''})
+    const router = useRouter()
+
+    async function handleSubmit(event: any) {
+        event.preventDefault()
+        const hero = {
+            name: String(event.target.name.value),
+            weapon: String(event.target.weapon.value),
+            attribute: String(event.target.attribute.value),
+        }
+
+        const response = await fetch('http://localhost:3000/api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(hero),
+        })
+        if (!response.ok) {
+            throw new Error(response.statusText)
+        } else {
+            alert("Hero added successfully!")
+        }
+    }
 
     return (
         <div className="flex my-4 justify-center">

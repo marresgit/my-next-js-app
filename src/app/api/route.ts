@@ -1,4 +1,4 @@
-import {NextRequest, NextResponse} from 'next/server'
+import { NextRequest, NextResponse} from 'next/server'
 import {prisma} from '@/db'
 import Form from "@/app/components/Form";
 import PrismaClientKnownRequestError = Prisma.PrismaClientKnownRequestError;
@@ -25,4 +25,19 @@ export async function POST(request: NextRequest) {
         }
     })
     return NextResponse.json({result})
+}
+
+export async function PUT(request: NextRequest) {
+    const data = await request.json()
+
+}
+
+export async function DELETE(request: NextRequest) {
+    const data = await request.json()
+    const deleteHero = await prisma.heroes.delete( {
+        where: {
+            id: data.id
+        }
+    })
+    return NextResponse.json({deleteHero})
 }
