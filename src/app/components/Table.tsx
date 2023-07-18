@@ -1,7 +1,6 @@
 'use client'
 
 import {GET} from "@/app/api/route";
-import {router} from "next/client";
 
 async function handleDelete(event: any) {
     event.preventDefault()
