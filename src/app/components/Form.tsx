@@ -1,8 +1,7 @@
 'use client'
 
-import {useEffect, useState} from "react";
-import { useRouter } from "next/navigation";
-
+import { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 
 
@@ -13,11 +12,12 @@ interface FormData {
 }
 
 export default function Form() {
-    const [form, setForm] = useState({name: '', weapon: '', attribute: ''})
+    const [form, setForm] = useState<FormData>({name: '', weapon: '', attribute: ''})
 
+    // const router = useRouter()
     const router = useRouter()
     const refreshData = () => {
-        router.refresh("/app")
+        router.refresh()
     }
 
     async function handleSubmit(event: any) {
@@ -39,6 +39,7 @@ export default function Form() {
             throw new Error(response.statusText)
         } else {
             refreshData()
+            setForm({name: '', weapon: '', attribute: ''})
             alert("Hero added successfully!")
         }
     }
@@ -54,15 +55,15 @@ export default function Form() {
                         </label>
 
                         <div className="mt-1">
-                            <input id="name" name="hero" type="name" placeholder="Name" required={true} className="text-black w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500"/>
+                            <input id="name" name="hero" type="name" placeholder="Name" required={true} value={form.name} onChange={e => setForm({...form, name: e.target.value})} className="text-black w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500"/>
                         </div>
 
                         <div className="mt-1">
-                            <input id="weapon" name="weapon" type="weapon" placeholder="Weapon" required={true} className="text-black w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500"/>
+                            <input id="weapon" name="weapon" type="weapon" placeholder="Weapon" required={true} value={form.weapon} onChange={e => setForm({...form, weapon: e.target.value})} className="text-black w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500"/>
                         </div>
 
                         <div className="mt-1">
-                            <input id="attribute" name="attribute" type="attribute" placeholder="Attribute" required={true} className="text-black w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500"/>
+                            <input id="attribute" name="attribute" type="attribute" placeholder="Attribute" required={true} value={form.attribute} onChange={e => setForm({...form, attribute: e.target.value})} className="text-black w-full border border-gray-300 px-3 py-2 rounded-lg shadow-sm focus:outline-none focus:border-indigo-500"/>
                         </div>
 
                         <div className="mt-5">

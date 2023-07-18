@@ -20,6 +20,7 @@ npx prisma studio
 - [x] Create route to add to mysql (dota) (https://www.youtube.com/watch?v=cQ6V7ZHzg8c&t=2164s This could be to help)
 - [ ] Create route to PUT/change mysql (dota) 
 - [ ] Create route to delete (name)
+- [ ] Fix 
 
 Done
 
