@@ -14,7 +14,11 @@ interface FormData {
 
 export default function Form() {
     const [form, setForm] = useState({name: '', weapon: '', attribute: ''})
+
     const router = useRouter()
+    const refreshData = () => {
+        router.refresh("/app")
+    }
 
     async function handleSubmit(event: any) {
         event.preventDefault()
@@ -34,6 +38,7 @@ export default function Form() {
         if (!response.ok) {
             throw new Error(response.statusText)
         } else {
+            refreshData()
             alert("Hero added successfully!")
         }
     }

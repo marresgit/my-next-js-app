@@ -1,6 +1,7 @@
 'use client'
 
 import {GET} from "@/app/api/route";
+import {router} from "next/client";
 
 async function handleDelete(event: any) {
     event.preventDefault()
@@ -23,7 +24,10 @@ async function handleDelete(event: any) {
 }
 
 export default async function Table() {
+
+
     const res = await fetch('http://localhost:3000/api', {
+        cache: "no-store",
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
