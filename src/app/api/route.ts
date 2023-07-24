@@ -34,10 +34,11 @@ export async function PUT(request: NextRequest) {
 
 export async function DELETE(request: NextRequest) {
     const data = await request.json()
-    const deleteHero = await prisma.heroes.delete( {
-        where: {
-            id: data.id
-        }
-    })
-    return NextResponse.json({deleteHero})
+    console.log(data)
+    // const deleteHero = await prisma.heroes.delete( {
+    //     where: {
+    //         id: data.id
+    //     }
+    // })
+    // return NextResponse.json({deleteHero})
 }

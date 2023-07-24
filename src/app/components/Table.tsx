@@ -1,25 +1,31 @@
 'use client'
 
-import {GET} from "@/app/api/route";
+import {GET,DELETE} from "@/app/api/route";
+
 
 async function handleDelete(event: any) {
     event.preventDefault()
     const hero = {
-        id: String(event.target.id.value)
+        id: String(event.currentTarget.id)
     }
-    console.log(hero)
-    // const response = await fetch('http://localhost:3000/api', {
-    //     method: 'DELETE',
-    //     headers: {
-    //         'Content-type': 'application/json',
-    //     },
-    //     body: JSON.stringify(hero),
-    // })
-    // if (!response.ok) {
-    //     throw new Error(response.statusText)
-    // } else {
-    //     alert("Hero added successfully!")
-    // }
+    console.log("---------------BEGIN------------")
+    console.log(JSON.stringify(hero))
+    console.log("----------------END-------------")
+
+    const response = await fetch('http://localhost:3000/api', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(hero),
+    })
+    if (!response.ok) {
+        throw new Error(response.statusText)
+        console.log("ERROR WAS IN CLIENT")
+
+    } else {
+        alert("Hero DELETED successfully!")
+    }
 }
 
 export default async function Table() {
@@ -61,10 +67,10 @@ export default async function Table() {
                                     edit
                                 </button>
                             </td>
-                            <td key={hero.id} typeof="id" className={`pr-2`}>
-                                <button onClick={handleDelete}
-                                    className="bg-transparent bg-red-300 text-red-800 font-semibold hover:text-white py-1 px-4 border border-red-400 hover:border-transparent rounded">
-                                    delete {hero.id}
+                            <td typeof="id" className={`pr-2`}>
+                                <button id={hero.id} type="button" onClick={handleDelete}
+                                    className="bg-transparent bg-red-300 text-red-800 font-semibold py-1 px-4 border border-red-400 hover:bg-red-200 rounded">
+                                    delete
                                 </button>
                             </td>
                         </tr>
